@@ -9,6 +9,7 @@
       Title="GameHistoryPage">
 
     <Grid Background="White">
-        
+        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}"/>
+
     </Grid>
 </Page>

@@ -23,6 +23,8 @@ namespace Group4_Version2
         public GamePage()
         {
             InitializeComponent();
+
+
         }
     }
 }
