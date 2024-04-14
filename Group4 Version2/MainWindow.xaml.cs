@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,6 +24,25 @@ namespace Group4_Version2
         public MainWindow()
         {
             InitializeComponent();
+            
+        }
+
+        private void _NavFrame_Navigated(object sender, NavigationEventArgs e)
+
+        {
+            
+        }
+
+        private void GameHistory_Click(object sender, RoutedEventArgs e)
+        {
+            _NavFrame.Navigate(new GameHistoryPage());
+        }
+
+        private void StartGame_Click(object sender, RoutedEventArgs e)
+        {
+
+
+            _NavFrame.Navigate(new GamePage());
         }
     }
 }
