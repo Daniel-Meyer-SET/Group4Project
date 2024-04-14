@@ -11,8 +11,8 @@ namespace Group4_Version2
         string playerID;
         int movesTaken;
 
-        int MovesTaken {  get; set; }
-        string PlayerID { get; set; }
+      public  int MovesTaken {  get; set; }
+      public  string PlayerID { get; set; }
         
     
     }

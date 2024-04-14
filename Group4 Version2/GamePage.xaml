@@ -7,11 +7,21 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="GamePage">
-      
+
 
     <Grid Background="White">
         <Label Content="Game Page" HorizontalAlignment="Left" Margin="10,27,0,0" VerticalAlignment="Top"/>
+       
+
+        <Grid x:Name="NameInput" Visibility="Collapsed">
+            <StackPanel>
+                <TextBlock Margin="5" Text="Input Name" FontWeight="Bold" FontFamily="Cambria" />
+                <TextBox MinWidth="150" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="NewName"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button x:Name="inputName" Margin="5" Content="Accept"  Click="NameButton_Click"/>
+
+                </StackPanel>
+            </StackPanel>
+        </Grid>
     </Grid>
-    
-    
 </Page>

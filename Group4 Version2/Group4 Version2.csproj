@@ -71,6 +71,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Game.cs" />
     <Compile Include="GameHistoryPage.xaml.cs">
       <DependentUpon>GameHistoryPage.xaml</DependentUpon>
     </Compile>

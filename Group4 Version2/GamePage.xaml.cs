@@ -24,5 +24,29 @@ namespace Group4_Version2
         {
             InitializeComponent();
         }
+        int playerCount = 0;
+        string player1Name;
+        string player2Name;
+        private void NameButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (NewName.Text.Length > 0 && playerCount <2) {
+                // start a new game with 2 players
+            playerCount++;
+                if (playerCount == 1) {
+                  player1Name = NewName.Text;
+                    NewName.Text = null;
+                }
+                if (playerCount == 2) {
+                     player2Name = NewName.Text;
+
+                    NewName.Text = null;
+                    Game game = new Game(player1Name,player2Name);
+                }
+
+            }
+            
+            
+        }
+       
     }
 }
