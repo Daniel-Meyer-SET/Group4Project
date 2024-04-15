@@ -40,8 +40,10 @@ namespace Group4_Version2
                      player2Name = NewName.Text;
 
                     NewName.Text = null;
+                    // input fields are hidden and grid is shown after players input names
                     Game game = new Game(player1Name,player2Name);
-                    
+                    NameInput.Visibility = (Visibility.Collapsed);
+                    Board.Visibility = (Visibility.Visible);
                 }
 
             }
