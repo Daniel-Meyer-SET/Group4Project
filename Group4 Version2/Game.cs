@@ -10,7 +10,7 @@ namespace Group4_Version2
     {
         int totalTime;
         public int TotalTime { get {  return totalTime; } }
-      
+        
 
 
         public Game(string player1Name, string player2Name) {
@@ -20,6 +20,8 @@ namespace Group4_Version2
             p2.PlayerID = player2Name;
 
         }
+
+
 
         
     }

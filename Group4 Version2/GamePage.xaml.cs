@@ -41,6 +41,7 @@ namespace Group4_Version2
 
                     NewName.Text = null;
                     Game game = new Game(player1Name,player2Name);
+                    
                 }
 
             }
