@@ -14,6 +14,7 @@
 
 
         <Grid x:Name="NameInput" Visibility="Visible" ShowGridLines="True">
+            
             <StackPanel>
                 <TextBlock Margin="5" Text="Input Name" FontWeight="Bold" FontFamily="Cambria" />
                 <TextBox MinWidth="150" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="NewName"/>
@@ -21,8 +22,10 @@
                     <Button x:Name="inputName" Margin="5" Content="Accept"  Click="NameButton_Click"/>
 
                 </StackPanel>
+                <Label Content="Turn:" x:Name="playerTurn"/>
+
             </StackPanel>
-            <Grid Margin="79,86,79,10" x:Name="Board" Visibility="Hidden"  >
+            <Grid Margin="79,86,79,10" x:Name="Board" Visibility="Visible"  >
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>

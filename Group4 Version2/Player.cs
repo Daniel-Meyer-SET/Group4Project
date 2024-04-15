@@ -10,10 +10,16 @@ namespace Group4_Version2
     {
         string playerID;
         int movesTaken;
+        bool isActive;
 
       public  int MovesTaken {  get; set; }
       public  string PlayerID { get; set; }
+      public bool IsActive { get; set; }
+        public Player() { 
+            movesTaken = 0;
+            isActive = false;
         
-    
+        }
+         
     }
 }

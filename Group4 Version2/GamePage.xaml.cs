@@ -50,6 +50,15 @@ namespace Group4_Version2
             
             
         }
-       
-    }
+        private void changeGridSquare() { 
+        
+        }
+        private void checkWin() { 
+        
+        
+        }
+    } 
+    
 }
+
+
