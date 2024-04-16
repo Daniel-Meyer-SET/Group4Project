@@ -52,8 +52,9 @@ namespace Group4_Version2
         private Game StartNewGame(string player1Name, string player2Name)
         {
             Game game = new Game(player1Name, player2Name);
-            NameInput.Visibility = (Visibility.Collapsed);
             Board.Visibility = (Visibility.Visible);
+            NameInput.Visibility = (Visibility.Collapsed);
+           
             game.player1.IsActive = true;
             return game;
         }
