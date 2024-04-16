@@ -27,6 +27,7 @@ namespace Group4_Version2
         int playerCount = 0;
         string player1Name;
         string player2Name;
+        Game game1;
         private void NameButton_Click(object sender, RoutedEventArgs e)
         {
             if (NewName.Text.Length > 0 && playerCount <2) {
@@ -41,17 +42,31 @@ namespace Group4_Version2
 
                     NewName.Text = null;
                     // input fields are hidden and grid is shown after players input names
-                    Game game = new Game(player1Name,player2Name);
-                    NameInput.Visibility = (Visibility.Collapsed);
-                    Board.Visibility = (Visibility.Visible);
+                    game1 = StartNewGame(player1Name, player2Name);
                 }
 
             }
             
             
         }
-        private void changeGridSquare() { 
-        
+        private Game StartNewGame(string player1Name, string player2Name)
+        {
+            Game game = new Game(player1Name, player2Name);
+            NameInput.Visibility = (Visibility.Collapsed);
+            Board.Visibility = (Visibility.Visible);
+            game.player1.IsActive = true;
+            return game;
+        }
+        private void changeGridSquare() {
+            if (game1.player1.IsActive) { 
+            game1.player1.IsActive = false;
+                game1.player2.IsActive = true;
+            }
+            if(!game1.player2.IsActive) { 
+            game1.player2.IsActive = false;
+            game1.player1.IsActive = true;
+            }
+
         }
         private void checkWin() { 
         

@@ -10,14 +10,15 @@ namespace Group4_Version2
     {
         int totalTime;
         public int TotalTime { get {  return totalTime; } }
-        
+        public  Player player1;
+        public Player player2;
 
 
         public Game(string player1Name, string player2Name) {
-            Player p1 = new Player();
-            p1.PlayerID = player1Name;
-            Player p2 = new Player();
-            p2.PlayerID = player2Name;
+            player1 = new Player();
+            player1.PlayerID = player1Name;
+            player2 = new Player();
+            player2.PlayerID = player2Name;
 
         }
 
