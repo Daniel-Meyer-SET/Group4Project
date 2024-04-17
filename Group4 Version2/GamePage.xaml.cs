@@ -80,6 +80,8 @@ namespace Group4_Version2
 
             if (column0Match || column1Match || column2Match || column3Match || row0Match || row1Match || row2Match || row3Match || diagonalDown || diagonaUp) { 
             playerTurn.Content = playerName + " wins";
+              
+                // deactivate all buttons
                 b00.IsHitTestVisible = false;
                 b01.IsHitTestVisible = false;
                 b02.IsHitTestVisible = false;

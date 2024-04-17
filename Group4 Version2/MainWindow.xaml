@@ -10,6 +10,8 @@
         <Button x:Name="GameHistory" Content="Game History" HorizontalAlignment="Left" Margin="168,293,0,0" VerticalAlignment="Top" Click="GameHistory_Click"/>
         <Button x:Name="StartGame" Content="Start Game" HorizontalAlignment="Left" Margin="475,298,0,0" VerticalAlignment="Top" Click="StartGame_Click"/>
         <Frame x:Name="_NavFrame" NavigationUIVisibility="Hidden" Navigated="_NavFrame_Navigated"/>
+        <TextBlock HorizontalAlignment="Left" Margin="130,150,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Text="Tic-Tac-Toe Game" FontSize="72 
+                   "/>
     </Grid>
     
 </Window>
