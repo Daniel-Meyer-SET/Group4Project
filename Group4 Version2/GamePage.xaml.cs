@@ -59,21 +59,42 @@ namespace Group4_Version2
             return game;
         }
       
-        private void CheckWin() {
-         bool column0Match=   b00.Content == b01.Content && b02.Content == b03.Content;
-         bool column1Match = b10.Content == b11.Content && b12.Content == b13.Content;
-         bool column2Match = b20.Content == b21.Content && b22.Content == b23.Content;   
-         bool column3Match = b30.Content == b31.Content && b32.Content == b33.Content;
+        private void CheckWin(string playerName, string boxMarker) {
+            
+
+         bool column0Match= b00.Content.ToString() == boxMarker && b01.Content.ToString()== boxMarker && b02.Content.ToString() == boxMarker && b03.Content.ToString() == boxMarker;
+         bool column1Match = b10.Content.ToString() == boxMarker && b11.Content.ToString() == boxMarker && b12.Content.ToString() == boxMarker && b13.Content.ToString() == boxMarker;
+         bool column2Match = b20.Content.ToString() == boxMarker && b21.Content.ToString() == boxMarker && b22.Content.ToString() == boxMarker && b23.Content.ToString() == boxMarker;
+         bool column3Match = b30.Content.ToString() == boxMarker && b31.Content.ToString() == boxMarker && b32.Content.ToString() == boxMarker && b33.Content.ToString() == boxMarker;
            
-            bool row0Match = b00.Content == b10.Content && b20.Content == b30.Content;
-            bool row1Match = b01.Content == b11.Content && b21.Content == b31.Content;
-            bool row2Match = b02.Content == b12.Content && b22.Content == b32.Content;
-            bool row3Match = b03.Content == b13.Content && b23.Content == b33.Content;
+            bool row0Match = b00.Content.ToString() == boxMarker && b10.Content.ToString() == boxMarker && b20.Content.ToString() == boxMarker && b30.Content.ToString() == boxMarker;
+            bool row1Match = b01.Content.ToString() == boxMarker && b11.Content.ToString() == boxMarker && b21.Content.ToString() == boxMarker && b31.Content.ToString() == boxMarker;
+            bool row2Match = b02.Content.ToString() == boxMarker && b12.Content.ToString() == boxMarker && b22.Content.ToString() == boxMarker && b32.Content.ToString() == boxMarker;
+            bool row3Match = b03.Content.ToString() == boxMarker && b13.Content.ToString() == boxMarker && b23.Content.ToString() == boxMarker && b33.Content.ToString() == boxMarker;
 
-            bool diagonalDown = b00.Content == b11.Content && b22.Content == b33.Content;
-            bool diagonaUp = b03.Content == b12.Content && b21.Content == b30.Content;
+            bool diagonalDown = b00.Content.ToString() == boxMarker && b11.Content.ToString() == boxMarker && b22.Content.ToString() == boxMarker && b33.Content.ToString() == boxMarker;
+            bool diagonaUp = b03.Content.ToString() == boxMarker && b12.Content.ToString() == boxMarker && b21.Content.ToString() == boxMarker && b30.Content.ToString() == boxMarker;
 
-           if()
+            if (column0Match || column1Match || column2Match || column3Match || row0Match || row1Match || row2Match || row3Match || diagonalDown || diagonaUp) { 
+            playerTurn.Content = playerName + "wins";
+                b00.IsHitTestVisible = false;
+                b01.IsHitTestVisible = false;
+                b02.IsHitTestVisible = false;
+                b03.IsHitTestVisible = false;
+                b10.IsHitTestVisible = false;
+                b11.IsHitTestVisible = false;
+                b12.IsHitTestVisible = false;
+                b13.IsHitTestVisible = false;
+                b20.IsHitTestVisible = false;
+                b21.IsHitTestVisible = false;
+                b22.IsHitTestVisible = false;
+                b23.IsHitTestVisible = false;
+                b30.IsHitTestVisible = false;
+                b31.IsHitTestVisible = false;
+                b32.IsHitTestVisible = false;
+                b33.IsHitTestVisible = false;
+
+            }
         
         }
 
@@ -88,7 +109,7 @@ namespace Group4_Version2
             {
                 clickedSquare.Content = "X";
                 game1.player1.MovesTaken++;
-                
+                CheckWin(game1.player1.PlayerID,"X");
                 game1.player1.IsActive = false;
                 game1.player2.IsActive = true;
                
@@ -96,13 +117,14 @@ namespace Group4_Version2
             
            else if (game1.player2.IsActive && (game1.player1.IsActive == false))
             {   clickedSquare.Content = "O";
+                CheckWin(game1.player2.PlayerID,"O");
                 game1.player2.MovesTaken++;
                 game1.player1.IsActive = true;
                 game1.player2.IsActive = false;
                
                 
             }
-            CheckWin();
+            
          }
     } 
     
