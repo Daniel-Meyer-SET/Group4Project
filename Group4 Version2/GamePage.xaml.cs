@@ -58,12 +58,22 @@ namespace Group4_Version2
             game.player1.IsActive = true;
             return game;
         }
-        private void changeGridSquare() {
+      
+        private void CheckWin() {
+         bool column0Match=   b00.Content == b01.Content && b02.Content == b03.Content;
+         bool column1Match = b10.Content == b11.Content && b12.Content == b13.Content;
+         bool column2Match = b20.Content == b21.Content && b22.Content == b23.Content;   
+         bool column3Match = b30.Content == b31.Content && b32.Content == b33.Content;
            
+            bool row0Match = b00.Content == b10.Content && b20.Content == b30.Content;
+            bool row1Match = b01.Content == b11.Content && b21.Content == b31.Content;
+            bool row2Match = b02.Content == b12.Content && b22.Content == b32.Content;
+            bool row3Match = b03.Content == b13.Content && b23.Content == b33.Content;
 
-        }
-        private void checkWin() { 
-        
+            bool diagonalDown = b00.Content == b11.Content && b22.Content == b33.Content;
+            bool diagonaUp = b03.Content == b12.Content && b21.Content == b30.Content;
+
+           if()
         
         }
 
@@ -77,6 +87,7 @@ namespace Group4_Version2
             if (game1.player1.IsActive && (game1.player2.IsActive == false))
             {
                 clickedSquare.Content = "X";
+                game1.player1.MovesTaken++;
                 
                 game1.player1.IsActive = false;
                 game1.player2.IsActive = true;
@@ -85,13 +96,14 @@ namespace Group4_Version2
             
            else if (game1.player2.IsActive && (game1.player1.IsActive == false))
             {   clickedSquare.Content = "O";
+                game1.player2.MovesTaken++;
                 game1.player1.IsActive = true;
                 game1.player2.IsActive = false;
                
                 
             }
-           
-        }
+            CheckWin();
+         }
     } 
     
 }
