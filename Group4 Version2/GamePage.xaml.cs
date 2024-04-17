@@ -43,6 +43,7 @@ namespace Group4_Version2
                     NewName.Text = null;
                     // input fields are hidden and grid is shown after players input names
                     game1 = StartNewGame(player1Name, player2Name);
+                    playerTurn.Content = "Turn " + game1.player1.PlayerID;
                 }
 
             }
@@ -56,7 +57,9 @@ namespace Group4_Version2
             NameInput.Visibility = (Visibility.Collapsed);
            
             game.player1.IsActive = true;
+
             return game;
+
         }
       
         private void CheckWin(string playerName, string boxMarker) {
@@ -76,7 +79,7 @@ namespace Group4_Version2
             bool diagonaUp = b03.Content.ToString() == boxMarker && b12.Content.ToString() == boxMarker && b21.Content.ToString() == boxMarker && b30.Content.ToString() == boxMarker;
 
             if (column0Match || column1Match || column2Match || column3Match || row0Match || row1Match || row2Match || row3Match || diagonalDown || diagonaUp) { 
-            playerTurn.Content = playerName + "wins";
+            playerTurn.Content = playerName + " wins";
                 b00.IsHitTestVisible = false;
                 b01.IsHitTestVisible = false;
                 b02.IsHitTestVisible = false;
@@ -109,23 +112,25 @@ namespace Group4_Version2
             {
                 clickedSquare.Content = "X";
                 game1.player1.MovesTaken++;
+                playerTurn.Content = "Turn " + game1.player2.PlayerID;
                 CheckWin(game1.player1.PlayerID,"X");
                 game1.player1.IsActive = false;
                 game1.player2.IsActive = true;
-               
+                
             }
             
            else if (game1.player2.IsActive && (game1.player1.IsActive == false))
             {   clickedSquare.Content = "O";
+                playerTurn.Content = "Turn " + game1.player1.PlayerID;
                 CheckWin(game1.player2.PlayerID,"O");
                 game1.player2.MovesTaken++;
                 game1.player1.IsActive = true;
                 game1.player2.IsActive = false;
-               
+
                 
             }
             
-         }
+        }
     } 
     
 }
