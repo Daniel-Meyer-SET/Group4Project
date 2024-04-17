@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +26,27 @@ namespace Group4_Version2
         public GameHistoryPage()
         {
             InitializeComponent();
+
+        }
+
+        public void LoadDBData() {
+            string connectStr = ConfigurationManager.ConnectionStrings["dbConnectStr"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(connectStr))
+            {
+                con.Open();
+
+                SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM gameHist", con); 
+                
+                DataTable tableData = new DataTable();
+                adapter.Fill(tableData);
+                scoreTable.ItemsSource = tableData.AsDataView();
+            }
+        
+        }
+
+        private void winLoaded(object sender, RoutedEventArgs e)
+        {
+            LoadDBData();
         }
     }
 }
