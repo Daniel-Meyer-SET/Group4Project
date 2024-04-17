@@ -59,19 +59,38 @@ namespace Group4_Version2
             return game;
         }
         private void changeGridSquare() {
-            if (game1.player1.IsActive) { 
-            game1.player1.IsActive = false;
-                game1.player2.IsActive = true;
-            }
-            if(!game1.player2.IsActive) { 
-            game1.player2.IsActive = false;
-            game1.player1.IsActive = true;
-            }
+           
 
         }
         private void checkWin() { 
         
         
+        }
+
+        private void MarkSquare(object sender, RoutedEventArgs e)
+        {
+            var clickedSquare = sender as Button;
+            clickedSquare.IsHitTestVisible= false;
+
+
+
+            if (game1.player1.IsActive && (game1.player2.IsActive == false))
+            {
+                clickedSquare.Content = "X";
+                
+                game1.player1.IsActive = false;
+                game1.player2.IsActive = true;
+               
+            }
+            
+           else if (game1.player2.IsActive && (game1.player1.IsActive == false))
+            {   clickedSquare.Content = "O";
+                game1.player1.IsActive = true;
+                game1.player2.IsActive = false;
+               
+                
+            }
+           
         }
     } 
     
