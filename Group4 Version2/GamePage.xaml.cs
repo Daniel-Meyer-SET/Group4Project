@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -61,7 +63,16 @@ namespace Group4_Version2
             return game;
 
         }
-      
+        private void saveWinner(Player winner) {
+
+            string connectStr = ConfigurationManager.ConnectionStrings["dbConnectStr"].ConnectionString;
+            string cmdStr = "INSERT INTO";
+            using (SqlConnection con = new SqlConnection(connectStr)) { 
+            
+            }
+
+        }
+
         private void CheckWin(string playerName, string boxMarker) {
             
 
