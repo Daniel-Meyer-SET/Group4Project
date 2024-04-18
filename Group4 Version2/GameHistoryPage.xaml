@@ -9,7 +9,11 @@
       Title="GameHistoryPage">
 
     <Grid Background="White">
-        <DataGrid x:Name="scoreTable" d:ItemsSource="{d:SampleData ItemCount=5}" Loaded="winLoaded"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="373*"/>
+            <RowDefinition Height="77*"/>
+        </Grid.RowDefinitions>
 
+        <DataGrid x:Name="scoreTable" d:ItemsSource="{d:SampleData ItemCount=5}" Loaded="winLoaded" IsReadOnly="True" Grid.RowSpan="2"/>
     </Grid>
 </Page>

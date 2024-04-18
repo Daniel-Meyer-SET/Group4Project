@@ -17,7 +17,7 @@
         <Grid x:Name="NameInput" Visibility="Visible" ShowGridLines="True">
 
             <StackPanel>
-                <TextBlock Margin="5" Text="Input Name" FontWeight="Bold" FontFamily="Cambria" />
+                <TextBlock x:Name="nameprompt" Margin="5" Text=" Player 1 Input Name" FontWeight="Bold" FontFamily="Cambria" />
                 <TextBox MinWidth="150" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="NewName"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <Button x:Name="inputName" Margin="5" Content="Accept"  Click="NameButton_Click"/>

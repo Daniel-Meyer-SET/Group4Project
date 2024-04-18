@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Group4_Version2
 {
@@ -34,10 +35,12 @@ namespace Group4_Version2
         {
             if (NewName.Text.Length > 0 && playerCount <2) {
                 // start a new game with 2 players
+
             playerCount++;
                 if (playerCount == 1) {
                   player1Name = NewName.Text;
                     NewName.Text = null;
+                    nameprompt.Text = " Player 2 Input Name";
                 }
                 if (playerCount == 2) {
                      player2Name = NewName.Text;
@@ -63,6 +66,8 @@ namespace Group4_Version2
             return game;
 
         }
+
+        // saves winner data to database.
         private void saveWinner(Player winner) {
 
             string connectStr = ConfigurationManager.ConnectionStrings["dbConnectStr"].ConnectionString;

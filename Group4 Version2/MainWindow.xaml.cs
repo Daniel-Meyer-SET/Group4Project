@@ -35,14 +35,15 @@ namespace Group4_Version2
 
         private void GameHistory_Click(object sender, RoutedEventArgs e)
         {
-            _NavFrame.Navigate(new GameHistoryPage());
+            NavFrame.Navigate(new GameHistoryPage());
         }
 
         private void StartGame_Click(object sender, RoutedEventArgs e)
         {
 
 
-            _NavFrame.Navigate(new GamePage());
+            NavFrame.Navigate(new GamePage());
+            
         }
     }
 }
