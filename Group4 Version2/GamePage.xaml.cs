@@ -66,14 +66,31 @@ namespace Group4_Version2
         private void saveWinner(Player winner) {
 
             string connectStr = ConfigurationManager.ConnectionStrings["dbConnectStr"].ConnectionString;
-            string cmdStr = "INSERT INTO";
-            using (SqlConnection con = new SqlConnection(connectStr)) { 
-            
+            string cmdStr = "INSERT INTO gameHist(PlayerName, NumberOfMoves) VALUES(@uName, @Count)";
+            using (SqlConnection con = new SqlConnection(connectStr)) {
+                using (SqlCommand cmd = new SqlCommand()) { 
+                cmd.Connection = con;
+                cmd.CommandText = cmdStr;
+                    cmd.Parameters.AddWithValue("@uName",winner.PlayerID);
+                    cmd.Parameters.AddWithValue("@Count", winner.MovesTaken);
+
+                    try {
+                        con.Open();
+                        cmd.ExecuteNonQuery(); 
+                    } 
+                    
+                    catch(SqlException e)
+                    {
+                        
+                    }
+                }
+
+
             }
 
         }
 
-        private void CheckWin(string playerName, string boxMarker) {
+        private void CheckWin(Player player, string boxMarker) {
             
 
          bool column0Match= b00.Content.ToString() == boxMarker && b01.Content.ToString()== boxMarker && b02.Content.ToString() == boxMarker && b03.Content.ToString() == boxMarker;
@@ -90,8 +107,9 @@ namespace Group4_Version2
             bool diagonaUp = b03.Content.ToString() == boxMarker && b12.Content.ToString() == boxMarker && b21.Content.ToString() == boxMarker && b30.Content.ToString() == boxMarker;
 
             if (column0Match || column1Match || column2Match || column3Match || row0Match || row1Match || row2Match || row3Match || diagonalDown || diagonaUp) { 
-            playerTurn.Content = playerName + " wins";
-              
+            playerTurn.Content = player.PlayerID + " wins";
+                saveWinner(player);
+
                 // deactivate all buttons
                 b00.IsHitTestVisible = false;
                 b01.IsHitTestVisible = false;
@@ -125,22 +143,23 @@ namespace Group4_Version2
             {
                 clickedSquare.Content = "X";
                 game1.player1.MovesTaken++;
-                playerTurn.Content = "Turn " + game1.player2.PlayerID;
-                CheckWin(game1.player1.PlayerID,"X");
+
+                CheckWin(game1.player1,"X");
                 game1.player1.IsActive = false;
                 game1.player2.IsActive = true;
-                
+                playerTurn.Content = "Turn " + game1.player2.PlayerID;
+
             }
             
            else if (game1.player2.IsActive && (game1.player1.IsActive == false))
             {   clickedSquare.Content = "O";
-                playerTurn.Content = "Turn " + game1.player1.PlayerID;
-                CheckWin(game1.player2.PlayerID,"O");
+                
+                CheckWin(game1.player2,"O");
                 game1.player2.MovesTaken++;
                 game1.player1.IsActive = true;
                 game1.player2.IsActive = false;
+                playerTurn.Content = "Turn " + game1.player1.PlayerID;
 
-                
             }
             
         }
