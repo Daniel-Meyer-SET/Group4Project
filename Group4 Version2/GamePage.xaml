@@ -27,7 +27,7 @@
 
             </StackPanel>
         </Grid>
-        <Grid Margin="79,86,79,10" x:Name="Board" Visibility="Visible"  >
+        <Grid Margin="79,86,79,10" x:Name="Board" Visibility="Hidden">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>

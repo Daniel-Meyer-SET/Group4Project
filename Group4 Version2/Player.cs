@@ -13,7 +13,7 @@ namespace Group4_Version2
         bool isActive;
 
       public  int MovesTaken {  get; set; }
-      public  string PlayerID { get; set; }
+      public  string PlayerName { get; set; }
       public bool IsActive { get; set; }
         public Player() { 
             movesTaken = 0;

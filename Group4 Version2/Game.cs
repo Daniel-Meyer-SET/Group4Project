@@ -16,9 +16,9 @@ namespace Group4_Version2
 
         public Game(string player1Name, string player2Name) {
             player1 = new Player();
-            player1.PlayerID = player1Name;
+            player1.PlayerName = player1Name;
             player2 = new Player();
-            player2.PlayerID = player2Name;
+            player2.PlayerName = player2Name;
 
         }
 

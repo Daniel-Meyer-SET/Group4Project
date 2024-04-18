@@ -45,7 +45,7 @@ namespace Group4_Version2
                     NewName.Text = null;
                     // input fields are hidden and grid is shown after players input names
                     game1 = StartNewGame(player1Name, player2Name);
-                    playerTurn.Content = "Turn " + game1.player1.PlayerID;
+                    playerTurn.Content = "Turn " + game1.player1.PlayerName;
                 }
 
             }
@@ -71,7 +71,7 @@ namespace Group4_Version2
                 using (SqlCommand cmd = new SqlCommand()) { 
                 cmd.Connection = con;
                 cmd.CommandText = cmdStr;
-                    cmd.Parameters.AddWithValue("@uName",winner.PlayerID);
+                    cmd.Parameters.AddWithValue("@uName",winner.PlayerName);
                     cmd.Parameters.AddWithValue("@Count", winner.MovesTaken);
 
                     try {
@@ -107,7 +107,7 @@ namespace Group4_Version2
             bool diagonaUp = b03.Content.ToString() == boxMarker && b12.Content.ToString() == boxMarker && b21.Content.ToString() == boxMarker && b30.Content.ToString() == boxMarker;
 
             if (column0Match || column1Match || column2Match || column3Match || row0Match || row1Match || row2Match || row3Match || diagonalDown || diagonaUp) { 
-            playerTurn.Content = player.PlayerID + " wins";
+            playerTurn.Content = player.PlayerName + " wins";
                 saveWinner(player);
 
                 // deactivate all buttons
@@ -143,22 +143,22 @@ namespace Group4_Version2
             {
                 clickedSquare.Content = "X";
                 game1.player1.MovesTaken++;
-
+                playerTurn.Content = "Turn " + game1.player2.PlayerName;
                 CheckWin(game1.player1,"X");
                 game1.player1.IsActive = false;
                 game1.player2.IsActive = true;
-                playerTurn.Content = "Turn " + game1.player2.PlayerID;
+                
 
             }
             
            else if (game1.player2.IsActive && (game1.player1.IsActive == false))
             {   clickedSquare.Content = "O";
-                
+                playerTurn.Content = "Turn " + game1.player1.PlayerName;
                 CheckWin(game1.player2,"O");
                 game1.player2.MovesTaken++;
                 game1.player1.IsActive = true;
                 game1.player2.IsActive = false;
-                playerTurn.Content = "Turn " + game1.player1.PlayerID;
+                
 
             }
             

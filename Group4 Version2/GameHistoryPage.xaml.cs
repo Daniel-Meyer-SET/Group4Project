@@ -33,13 +33,19 @@ namespace Group4_Version2
             string connectStr = ConfigurationManager.ConnectionStrings["dbConnectStr"].ConnectionString;
             using (SqlConnection con = new SqlConnection(connectStr))
             {
-                con.Open();
+                try
+                {
+                    con.Open();
 
-                SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM gameHist", con); 
+                    SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM gameHist", con);
+
+                    DataTable tableData = new DataTable();
+                    adapter.Fill(tableData);
+                    scoreTable.ItemsSource = tableData.AsDataView();
+                }
+                catch (SqlException e) { 
                 
-                DataTable tableData = new DataTable();
-                adapter.Fill(tableData);
-                scoreTable.ItemsSource = tableData.AsDataView();
+                }
             }
         
         }
